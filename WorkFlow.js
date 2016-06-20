@@ -628,12 +628,13 @@ function subscribeToBoard(fID){
 	sendToGoogle(request);
 }
 
-function claimToCalendar(ele){
-	var elem = ele.getParent.getParent;
-	var data = dict[elem.id];
-	var body = {
+function claimToCalendar(){
+	
+	//var elem = ele.getParent.getParent;
+	//var data = dict[elem.id];
+	//var body = {
 
-	}
+	//}
 	var op = gapi.client.request({
 		'root':'https://www.googleapis.com',
 		'path':'calendar/v3/users/me/calendarList',
