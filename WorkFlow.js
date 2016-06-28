@@ -629,6 +629,18 @@ function subscribeToBoard(fID){
 }
 
 function claimToCalendar(ele){
+	var op = gapi.client.request({
+		'root':'https://script.googleapis.com',
+		'path':'calendar/v3/users/me/calendarList',
+		'method' :'GET'
+	});
+	var resp = op.execute(function(resp){
+		if(resp.error && resp.error.status){
+			console.log('Error Calling API:' +JSON.stringify(resp,null,2));
+		} else{	
+			console.log(resp);
+		}
+	});
 	var elem = ele.getParent.getParent;
 	var data = dict[elem.id];
 	var body = {
