@@ -582,7 +582,7 @@ function sendToGoogle(request){
 		if(resp.error && resp.error.status){
 			console.log('Error Calling API:' +JSON.stringify(resp,null,2));
 		} else{	
-			return resp;
+			
 		}
 	});
 }
@@ -630,7 +630,7 @@ function subscribeToBoard(fID){
 
 function claimToCalendar(ele){
 	var op = gapi.client.request({
-		'root':'https://script.googleapis.com',
+		'root':'https://www.googleapis.com',
 		'path':'calendar/v3/users/me/calendarList',
 		'method' :'GET'
 	});
@@ -640,13 +640,49 @@ function claimToCalendar(ele){
 		} else{	
 			console.log(resp);
 		}
+		var calendar = resp.items[0].id;
+		console.log(calendar);
 	});
+	if(ele != undefined){
 	var elem = ele.getParent.getParent;
 	var data = dict[elem.id];
 	var body = {
-
-
-
+		"attachments[].fileUrl":"",
+		"attendees[].email":"",
+		"end":
+		{
+			"date":data.deadline,
+			"dateTime":data.deadline+"T17:00:00",
+			"timeZone":"America/Chicago"
+		},
+		"start":
+		{
+			"date":data.deadline,
+			"dateTime":data.deadline+"T16:30:00",
+			"timeZone":"America/Chicago"
+		},
+		"reminders.overrides":[
+		{
+			"method":"email",
+			"minutes" : 24*60
+		}
+		]
 	}
 
+	if(data.deadline != undefined && data.claimants.length()<= data.maxClaimants){
+	var op = gapi.client.request({
+		'root':'https://www.googleapis.com',
+		'path':'calendar/v3/calendars/'+resp.items[0].id+'/events',
+		'method':'POST',
+		'body': body
+	});
+	var resp = op.execute(function(resp){
+		if(resp.error && resp.error.status){
+			console.log('Error Calling API:'+JSON.stringify(resp,null,2));
+		} else{
+			data.claimants.push(calendar);
+		}
+	});
+	}
+	}
 }
