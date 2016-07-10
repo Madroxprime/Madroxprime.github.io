@@ -1,4 +1,4 @@
-var scopes = ["https://www.googleapis.com/auth/drive"];
+var SCOPES = ["https://www.googleapis.com/auth/drive"];
 var CLIENTID = "761475406211-2d6104gl40n28l4ojq5is01c3u0tm7ub.apps.googleusercontent.com"
 var scriptID = "MKqnzb-JX01aaSyAZrf5uG1RLchR5zaYm";
 
