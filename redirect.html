@@ -27,7 +27,8 @@
           // Show auth UI, allowing the user to initiate authorization by
           // clicking authorize button.
           authorizeDiv.style.display = 'inline';
-        };
+        }
+    }
     function handleAuthClick(event) {
         gapi.auth.authorize(
           {client_id: CLIENTID, scope: SCOPES, immediate: false},
