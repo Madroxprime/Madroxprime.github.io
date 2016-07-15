@@ -322,6 +322,7 @@ function retrieveSticky(elementID){
     while (match = search.exec(query))
        urlParams[decode(match[1])] = decode(match[2]);
 })();
+console.log(urlParams);
 				if(urlParams.folderID != undefined){
 					console.log(folderID);
 				}
