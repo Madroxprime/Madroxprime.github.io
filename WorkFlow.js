@@ -14,6 +14,19 @@ var me; //this should be stored in config
 var notes = [];
 var dict = {};
 var test = {};
+				var urlParams;
+(window.onpopstate = function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query))
+       urlParams[decode(match[1])] = decode(match[2]);
+})();
+console.log(urlParams);
 	
 function checkAuth(){
         gapi.auth.authorize(
@@ -310,6 +323,9 @@ function retrieveSticky(elementID){
 			for(i = 0; i < element.folders.length ;i++){
 				console.log(element)
 				folderID.push(element['folders'][i]);
+				if(urlParams.folderID != undefined){
+					console.log(folderID);
+				}
 				}
 				var folderSelect = document.getElementById('select');
 				if(folderID.length > 1 && folderSelect == null){
