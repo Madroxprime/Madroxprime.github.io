@@ -341,6 +341,9 @@ function retrieveSticky(elementID){
 			folderID.forEach(rebuildSite);
 			if(urlParams.folderID){
 				subscribeToBoard(urlParams.folderID);
+				if($('#folderSelect').is(':hidden')){
+					$('#folderSelect').toggle();
+				}
 			}
 			}
 						
