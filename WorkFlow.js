@@ -14,7 +14,7 @@ var me; //this should be stored in config
 var notes = [];
 var dict = {};
 var test = {};
-var urlParams = (function(a) {
+var urlParams=(function(a) {
     if (a == "") return {};
     var b = {};
     for (var i = 0; i < a.length; ++i)
@@ -27,8 +27,6 @@ var urlParams = (function(a) {
     }
     return b;
 })(window.location.search.substr(1).split('&'));
-
-console.log(urlParams);
 	
 function checkAuth(){
         gapi.auth.authorize(
@@ -46,6 +44,7 @@ function handleAuthResult(authResult) {
           refresh();
           checkConfig();
           getMe();
+		  console.log(urlParams);
         } else {
           // Show auth UI, allowing the user to initiate authorization by
           // clicking authorize button.
