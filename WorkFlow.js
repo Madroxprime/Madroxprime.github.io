@@ -324,9 +324,6 @@ function retrieveSticky(elementID){
 			for(i = 0; i < element.folders.length ;i++){
 				console.log(element)
 				folderID.push(element['folders'][i]);
-				if(urlParams.folderID != undefined){
-					console.log(folderID);
-				}
 				}
 				var folderSelect = document.getElementById('select');
 				if(folderID.length > 1 && folderSelect == null){
@@ -342,7 +339,9 @@ function retrieveSticky(elementID){
 				}
 
 			folderID.forEach(rebuildSite);
-
+			if(urlParams.folderID){
+				subscribeToBoard(urlParams.folderID);
+			}
 			}
 						
 		else {
@@ -464,7 +463,7 @@ function checkConfig(){
 		} else {
 			var file = resp.response.result;
 			retrieveSticky(file);
-			
+			console.log(urlParams);
 				} 
 	});
 }
