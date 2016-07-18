@@ -173,6 +173,7 @@ function makeElement(name){
 	} else {
 	var folder = folderID[0]
 	}
+	data.folder = folder;
 	var request = {
 		'function':'makeElement',
 		'parameters':[name,data, folder]
