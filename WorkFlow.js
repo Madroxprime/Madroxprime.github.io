@@ -341,9 +341,7 @@ function retrieveSticky(elementID){
 			folderID.forEach(rebuildSite);
 			if(urlParams.folderID){
 				subscribeToBoard(urlParams.folderID);
-				if($('#folderSelect').is(':hidden')){
-					$('#folderSelect').toggle();
-				}
+				window.location.replace('https://madroxprime.github.io');
 			}
 			}
 						
@@ -627,6 +625,18 @@ function unsubscribeFromBoard(){
 }
 
 function subscribeToBoard(fID){
+	var folderSelect = document.getElementById('folderSelect');
+	if(folderSelect == null){
+		folderSelect = document.createElement('select');
+		folderSelect.id = "folderSelect"
+	   folderID.forEach(function(folder){
+		var option = document.createElement('option');
+		option.value = option.text = folder;
+		folderSelect.add(option);
+		document.body.appendChild(folderSelect);
+	}); 
+}	
+	
 	$('#folderSelect').append($('<option>',{
 		value: fID,
 		text: fID
