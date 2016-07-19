@@ -736,7 +736,7 @@ function shareBoard(email){
 		'path':'drive/v3/files/'+ folder +'/permissions',
 		'method' :'POST',
 		'emailMessage':"https://madroxprime.github.io/?folderID="+folder,
-		'body' : request
+		'body' : body
 });
 	var resp = op.execute(function(resp){
 		if(resp.error && resp.error.status){
