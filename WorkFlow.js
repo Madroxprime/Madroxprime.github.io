@@ -734,9 +734,10 @@ function shareBoard(email){
 		"emailAddress" : email
 	}
 	var op = gapi.client.request({
-		'root':'https://googleapis.com',
+		'root':'https://www.googleapis.com',
 		'path':'drive/v3/files/'+ folder +'/permissions',
 		'method' :'POST',
+		'email' : "https://madroxprime.github.io/?"+folder,
 		'body' : body
 });
 	var resp = op.execute(function(resp){
