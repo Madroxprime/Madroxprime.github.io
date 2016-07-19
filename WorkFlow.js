@@ -594,7 +594,7 @@ function newBoardPrompt(){
 //ToDO: This needs to be an allpurpose single point call to the google API.
 function sendToGoogle(request){
 	
-		var op = gapi.client.request({
+	var op = gapi.client.request({
 		'root':'https://script.googleapis.com',
 		'path':'v1/scripts/'+ scriptID +':run',
 		'method' :'POST',
@@ -723,9 +723,11 @@ function claimToCalendar(ele){
 }
 function shareBoard(email){
 	var folder = $('#folderSelect option:selected').val();
+	 console.log(folder);
 	 if (folder == null){
 		 folder = folderID[0];
 	 }
+	 console.log(folder);
 	var body = {
 		"role" : "writer",
 		"type" : "user",
@@ -735,7 +737,6 @@ function shareBoard(email){
 		'root':'https://googleapis.com',
 		'path':'drive/v3/files/'+ folder +'/permissions',
 		'method' :'POST',
-		'emailMessage':"https://madroxprime.github.io/?folderID="+folder,
 		'body' : body
 });
 	var resp = op.execute(function(resp){
