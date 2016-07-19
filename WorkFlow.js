@@ -741,7 +741,10 @@ function shareBoard(email){
 	var resp = op.execute(function(resp){
 		if(resp.error && resp.error.status){
 			console.log('Error Calling API:'+JSON.stringify(resp,null,2));
-		} else{
+		} else if(resp.error){
+			console.log(resp.error);
+		} 
+		else{
 			console.log(email + " Added as user");
 		}
 	});
