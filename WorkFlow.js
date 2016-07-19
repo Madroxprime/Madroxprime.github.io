@@ -136,8 +136,12 @@ function restoreNote(note){
 	var buttonClose = document.createElement('button');
 	buttonClose.setAttribute('onClick',"CloseElement(this)")
 	buttonClose.innerHTML = 'Finish'
+	var deleteButton = document.createElement('button');
+	deleteButton.setAttribute('onClick',"console.log(this.getParent.getParent.id)");
+	deleteButton.innerHTML = 'Delete'
 	header.appendChild(button);
 	header.appendChild(buttonClose);
+	header.appendChild(deleteButton);
 	draggable.appendChild(header);
 	draggable.appendChild(textArea);
 	draggable.style.left = note.x;
@@ -569,6 +573,7 @@ function updateJSON(id){
 		dict[id][0].y = y;
 		dict[id][0].data = document.getElementById(id).childNodes[1].value;
 		dict[id][0].lastEditor = me
+		
 }
 
 function deleteNote(id){
