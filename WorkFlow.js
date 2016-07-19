@@ -721,3 +721,24 @@ function claimToCalendar(ele){
 	}
 	}
 }
+function shareBoard(email){
+	var body = {
+		"role" : "writer",
+		"type" : "user",
+		"emailAddress" : email
+	}
+	var op = gapi.client.request({
+		'root':'https://googleapis.com',
+		'path':'drive/v3/files/'+ folderID +'/permissions',
+		'method' :'POST',
+		'emailMessage':"https://madroxprime.github.io/?folderID="+folderID,
+		'body' : request
+});
+	var resp = op.execute(function(resp){
+		if(resp.error && resp.error.status){
+			console.log('Error Calling API:'+JSON.stringify(resp,null,2));
+		} else{
+			console.log(email + " Added as user");
+		}
+	});
+}
