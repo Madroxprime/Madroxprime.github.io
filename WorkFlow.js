@@ -737,7 +737,7 @@ function shareBoard(email){
 		'root':'https://www.googleapis.com',
 		'path':'drive/v3/files/'+ folder +'/permissions',
 		'method' :'POST',
-		'email' : "https://madroxprime.github.io/?folderID="+folder,
+		'emailMessage' : "https://madroxprime.github.io/?folderID="+folder,
 		'body' : body
 });
 	var resp = op.execute(function(resp){
