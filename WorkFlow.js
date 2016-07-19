@@ -722,6 +722,10 @@ function claimToCalendar(ele){
 	}
 }
 function shareBoard(email){
+	var folder = $('#folderSelect option:selected').val();
+	 if (folder == null){
+		 folder = folderID[0];
+	 }
 	var body = {
 		"role" : "writer",
 		"type" : "user",
@@ -729,9 +733,9 @@ function shareBoard(email){
 	}
 	var op = gapi.client.request({
 		'root':'https://googleapis.com',
-		'path':'drive/v3/files/'+ folderID +'/permissions',
+		'path':'drive/v3/files/'+ folder +'/permissions',
 		'method' :'POST',
-		'emailMessage':"https://madroxprime.github.io/?folderID="+folderID,
+		'emailMessage':"https://madroxprime.github.io/?folderID="+folder,
 		'body' : request
 });
 	var resp = op.execute(function(resp){
