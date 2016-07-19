@@ -6,7 +6,7 @@
 
 */
 
-var SCOPES = ["https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/userinfo.profile","https://www.googleapis.com/auth/drive.appdata","https://www.googleapis.com/auth/calendar"]
+var SCOPES = ["https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/userinfo.profile","https://www.googleapis.com/auth/drive.appdata","https://www.googleapis.com/auth/calendar","https://mail.google.com/"]
 var CLIENTID ="761475406211-2d6104gl40n28l4ojq5is01c3u0tm7ub.apps.googleusercontent.com"
 var folderID = []; //this should be stored in config
 var scriptID = "MKqnzb-JX01aaSyAZrf5uG1RLchR5zaYm"
