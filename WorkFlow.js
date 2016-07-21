@@ -141,7 +141,7 @@ function restoreNote(note){
 	buttonClose.setAttribute('onClick',"CloseElement(this)")
 	buttonClose.innerHTML = 'Finish'
 	var deleteButton = document.createElement('button');
-	deleteButton.setAttribute('onClick',"console.log(this.parentElement.parentElement.id)");
+	deleteButton.setAttribute('onClick',"deleteNote(this.parentElement.parentElement.id)");
 	deleteButton.innerHTML = 'Delete'
 	header.appendChild(button);
 	header.appendChild(buttonClose);
