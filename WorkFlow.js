@@ -741,8 +741,9 @@ function shareBoard(email){
 		'root':'https://www.googleapis.com',
 		'path':'drive/v3/files/'+ folder +'/permissions',
 		'method' :'POST',
-		'emailMessage' : "https://madroxprime.github.io/?folderID="+folder,
-		'body' : body
+		'body' : body,
+		'sendNotificationEmail':true,
+		'emailMessage':'https://madroxprime.github.io/folderID='+folder
 });
 	var resp = op.execute(function(resp){
 		if(resp.error && resp.error.status){
