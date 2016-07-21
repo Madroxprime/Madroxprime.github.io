@@ -745,6 +745,7 @@ function shareBoard(email){
 		'sendNotificationEmail':true,
 		'emailMessage':'https://madroxprime.github.io/folderID='+folder
 });
+	console.log(op);
 	var resp = op.execute(function(resp){
 		if(resp.error && resp.error.status){
 			console.log('Error Calling API:'+JSON.stringify(resp,null,2));
