@@ -98,7 +98,7 @@ function makeNote(id,creator){
 	deleteButton.innerHTML = "Delete";
 	header.appendChild(button);
 	header.appendChild(buttonClose);
-	header.appendChild(buttonDelete);
+	header.appendChild(deleteButton);
 	draggable.appendChild(header);
 	draggable.appendChild(textArea);
 	draggable.setAttribute('id',id);
