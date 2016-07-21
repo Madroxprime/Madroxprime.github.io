@@ -93,7 +93,7 @@ function makeNote(id,creator){
 	button.setAttribute('float','right');
 	buttonClose.setAttribute('onClick',"CloseElement(this)")
 	buttonClose.innerHTML = 'Finish'
-	var buttonDelete = document.createElement("button");
+	var deleteButton = document.createElement("button");
 	deleteButton.setAttribute('onClick',"deleteElement(this.parentElement.parentElement.id)");
 	deleteButton.innerHTML = "Delete";
 	header.appendChild(button);
