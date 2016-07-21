@@ -737,13 +737,16 @@ function shareBoard(email){
 		"type" : "user",
 		"emailAddress" : email
 	}
+	var params ={
+		'sendNotificationEmail':true,
+		'emailMessage':'https://madroxprime.github.io/folderID='+folder
+	}
 	var op = gapi.client.request({
 		'root':'https://www.googleapis.com',
 		'path':'drive/v3/files/'+ folder +'/permissions',
 		'method' :'POST',
 		'body' : body,
-		'sendNotificationEmail':true,
-		'emailMessage':'https://madroxprime.github.io/folderID='+folder
+		'params':params
 });
 	console.log(op);
 	var resp = op.execute(function(resp){
