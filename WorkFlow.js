@@ -444,7 +444,7 @@ function refresh(){
 	}
 function closeElement(id){
 	$(id).remove();
-	notes.splice(notes.indexOf(elem.id),1);
+	notes.splice(notes.indexOf(id),1);
 }
 //TODO: THIS function needs to look in the appData folder and parse all that information into useful stuff
 function checkConfig(){
