@@ -94,7 +94,7 @@ function makeNote(id,creator){
 	buttonClose.setAttribute('onClick',"CloseElement(this)")
 	buttonClose.innerHTML = 'Finish'
 	var deleteButton = document.createElement("button");
-	deleteButton.setAttribute('onClick',"deleteElement(this.parentElement.parentElement.id)");
+	deleteButton.setAttribute('onClick',"deleteNote(this.parentElement.parentElement.id)");
 	deleteButton.innerHTML = "Delete";
 	header.appendChild(button);
 	header.appendChild(buttonClose);
@@ -585,6 +585,7 @@ var request = {
 	'function':'deleteElement',
 	'parameters':[id]
 }
+console.log(id);
 var resp = sendToGoogle(request);
 }
 
@@ -609,7 +610,7 @@ function sendToGoogle(request){
 		if(resp.error && resp.error.status){
 			console.log('Error Calling API:' +JSON.stringify(resp,null,2));
 		} else{	
-			
+			console.log(resp);
 		}
 	});
 }
