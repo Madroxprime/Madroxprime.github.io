@@ -739,7 +739,7 @@ function shareBoard(email){
 	}
 	var params ={
 		'sendNotificationEmail':true,
-		'emailMessage':'https://madroxprime.github.io/folderID='+folder
+		'emailMessage':'https://madroxprime.github.io/%3ffolderID='+folder
 	}
 	var op = gapi.client.request({
 		'root':'https://www.googleapis.com',
