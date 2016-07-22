@@ -388,7 +388,7 @@ function update(folderID){
 			var files = resp.response.result;
 			files.forEach(function(current){	
 				if($.inArray(current,notes)==-1){
-					//retrieveSticky(current);
+					retrieveSticky(current);
 					console.log("NOtes now has :"+current)
 				} else {
 			var request = {
@@ -442,10 +442,8 @@ function refresh(){
 		}
 		});
 	}
-function CloseElement(ele){
-	var elem = ele.parentElement.parentElement
-	$(elem).remove();
-	saveFinishedElement(ele);
+function CloseElement(id){
+	$(id).remove();
 	notes.splice(notes.indexOf(elem.id),1);
 }
 //TODO: THIS function needs to look in the appData folder and parse all that information into useful stuff
