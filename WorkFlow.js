@@ -585,7 +585,7 @@ var request = {
 }
 console.log(id);
 var resp = sendToGoogle(request);
-CloseElement(id);
+closeElement(id);
 }
 
 function newBoardPrompt(){
