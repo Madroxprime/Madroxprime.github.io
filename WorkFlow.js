@@ -91,7 +91,7 @@ function makeNote(id,creator){
 	button.setAttribute('onClick',"saveElement(this)")
 	button.innerHTML = 'Save'
 	button.setAttribute('float','right');
-	buttonClose.setAttribute('onClick',"CloseElement(this)")
+	buttonClose.setAttribute('onClick',"closeElement(this.parentElement.parentElement.id)")
 	buttonClose.innerHTML = 'Finish'
 	var deleteButton = document.createElement("button");
 	deleteButton.setAttribute('onClick',"deleteNote(this.parentElement.parentElement.id)");
@@ -138,7 +138,7 @@ function restoreNote(note){
 	button.innerHTML = 'Save'
 	draggable.setAttribute('id',note.id)
 	var buttonClose = document.createElement('button');
-	buttonClose.setAttribute('onClick',"CloseElement(this)")
+	buttonClose.setAttribute('onClick',"closeElement(this.parentElement.parentElement.id)")
 	buttonClose.innerHTML = 'Finish'
 	var deleteButton = document.createElement('button');
 	deleteButton.setAttribute('onClick',"deleteNote(this.parentElement.parentElement.id)");
@@ -442,7 +442,7 @@ function refresh(){
 		}
 		});
 	}
-function CloseElement(id){
+function closeElement(id){
 	$(id).remove();
 	notes.splice(notes.indexOf(elem.id),1);
 }
