@@ -18,7 +18,7 @@ document.write('<img name="defaultimage" src="'+myAds[Math.floor(Math.random()*(
 
 function changeImage()
 {
-  var random = Math.random()*myAds.length;
+  var random = Math.floor(Math.random()*(myAds.length));
   console.log(random)
 document.images.defaultimage.src=myAds[random];
 
