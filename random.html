@@ -1,0 +1,27 @@
+<html>
+<body>
+
+<script language = "javascript">
+
+var timeOnEachSlide = 2000;
+var position = 0;
+
+var myAds = [
+"images/picture1.jpg",
+"images/picture2.jpg",
+"images/picture3.jpg",
+"images/picture4.jpg",
+images/picture5.jpg"
+]
+
+document.write('<img name="defaultimage" src="'+randomimages[Math.floor(Math.random()*(myAds.length))]+'">')
+
+function changeImage()
+{
+document.images.defaultimage.src=myPix[Math.random()*(myAds.length)];
+
+}
+setInterval("changeImage",timeOnEachSlide);
+</script>
+</body>
+</html>
