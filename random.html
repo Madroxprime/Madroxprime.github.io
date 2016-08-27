@@ -18,7 +18,7 @@ document.write('<img name="defaultimage" src="'+myAds[Math.floor(Math.random()*(
 
 function changeImage()
 {
-document.images.defaultimage.src=myPix[Math.random()*(myAds.length)];
+document.images.defaultimage.src=myAds[Math.random()*(myAds.length)];
 
 }
 setInterval("changeImage",timeOnEachSlide);
