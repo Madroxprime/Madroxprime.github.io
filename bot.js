@@ -42,6 +42,8 @@ switch (e.message.content){
         e.message.channel.sendMessage("Hello, "+ username);
         break;
 } 
+});
 
-
+client.Dispatcher.on("VOICE_CHANNEL_JOIN", e => {
+    e.message.channel.sendMessage("Welcome back, "+e.user.username);
 });
