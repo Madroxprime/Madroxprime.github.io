@@ -7,6 +7,7 @@ Version: 0.1
 */
 var Discord = require("discord.js");
 var bot = new Discord.Client();
+require('strict-mode');
 require('String.prototype.startsWith'); // used to parse complicated messages
 
 // begin main bot
