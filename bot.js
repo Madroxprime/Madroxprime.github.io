@@ -5,27 +5,18 @@ Created: 05/10/2016
 Description: Main Bot File
 Version: 0.1
 */
-var Discord = require("discord.js");
-var bot = new Discord.Client();
-require('strict-mode');
-require('String.prototype.startsWith'); // used to parse complicated messages
+// load discordie object
+var discordie = require("discordie");
+// create the discord client obj
+var client = new discordie();
 
-// begin main bot
-bot.on("message", function(message) {
-    // convert message into all upper case and store it in input
-    var input = message.content.toUpperCase();
-    var server = message.channel.server;
-    var roles = message.channel.server.roles;
-    var user = message.author;
-    var role;
-    var roleName = message.content.split(" "); // roleName[0] = "ADDROLE", roleName[1] = "GivenRole"
-    var channels = message.channel.server.channels;
-    var channel;
-    var reserved;        // Hello Casualty
-    if (input === "HELLO CASUALTY") {
-        bot.reply(message, "Hello! Good to be back.");
+// be sure to authorize the bot to your server/guild
+// https://discordapp.com/oauth2/authorize?client_id=<CLIENT_ID>&scope=bot
 
-
-}
+client.connect({
+token: "MjMzMzg1NTA1MDAwMTI4NTEy.CtcswQ.kZ78S9JZgxlzuR4W0ukbvdKIPE0"
 });
-bot.loginWithToken("MjMzMzg1NTA1MDAwMTI4NTEy.CtcswQ.kZ78S9JZgxlzuR4W0ukbvdKIPE0");
+
+client.Dispatcher.on("GATEWAY_READY", e => {
+console.log("Connected as: " + client.User.username);
+});
