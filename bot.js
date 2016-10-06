@@ -38,7 +38,7 @@ switch (e.message.content){
     case "ping" : e.message.channel.sendMessage("pong");
                     break;
     case "Hello Casualty" : 
-        var username = e.message.author;
+        var username = e.message.author.username;
         e.message.channel.sendMessage("Hello, "+ username);
         break;
 } 
