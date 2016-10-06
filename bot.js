@@ -20,3 +20,20 @@ token: "MjMzMzg1NTA1MDAwMTI4NTEy.CtcswQ.kZ78S9JZgxlzuR4W0ukbvdKIPE0"
 client.Dispatcher.on("GATEWAY_READY", e => {
 console.log("Connected as: " + client.User.username);
 });
+client.Dispatcher.on("MESSAGE_CREATE", e => {
+console.log(e);
+var privateMsg = e.message.isPrivate; // undefined if a message on a channel
+
+// e.message.content => returns the string that was sent to the server.
+// e.message.channel returns the location of the sent message, either the
+// text channel or the DirectMessageChannel.
+
+// if privateMsg is true, you can encase the following code to
+// reply in a private message to the user who pm'ed the
+// bot.
+
+if (e.message.content == "ping") {
+e.message.channel.sendMessage("pong");
+}
+
+});
