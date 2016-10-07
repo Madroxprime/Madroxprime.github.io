@@ -24,7 +24,8 @@ console.log("Connected as: " + client.User.username);
 client.Dispatcher.on("MESSAGE_CREATE", e => {
 console.log(e);
 var privateMsg = e.message.isPrivate; // undefined if a message on a channel
-
+var message = e.message.content.toLowerCase();
+  
 // e.message.content => returns the string that was sent to the server.
 // e.message.channel returns the location of the sent message, either the
 // text channel or the DirectMessageChannel.
@@ -32,16 +33,32 @@ var privateMsg = e.message.isPrivate; // undefined if a message on a channel
 // if privateMsg is true, you can encase the following code to
 // reply in a private message to the user who pm'ed the
 // bot.
-
-switch (e.message.content){
+if(message.substring(0,1) != "!"){
+    var args = message.split(" ");
+    switch (args[0]){
+        case "!time": 
+            e.message.channel.sendMessage("We're not quite ready to tell the time in a human readable format");
+            break;
+        case "!invite" :
+            e.message.channel.sendMessage("We're not quite ready to send invites yet.");
+            break;
+        case "!make" :
+            e.message.channel.sendMessage("We're not quite ready to make groups yet.");
+            break'               
+            
+     }
+}else {
+switch (message){
 
     case "ping" : e.message.channel.sendMessage("pong");
                     break;
-    case "Hello Casualty" : 
+    case "hello casualty" : 
         var username = e.message.author.username;
         e.message.channel.sendMessage("Hello, "+ username);
-        break;
-} 
+        break; 
+     
+    } 
+}
 });
 
 client.Dispatcher.on("VOICE_CHANNEL_JOIN", e => {
