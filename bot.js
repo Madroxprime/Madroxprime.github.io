@@ -46,7 +46,7 @@ switch (e.message.content){
 
 client.Dispatcher.on("VOICE_CHANNEL_JOIN", e => {
     try{
-    e.message.channel.sendMessage("Welcome back, "+e.user.username);
+    console.log(client.Channels.textForGuild(e.guildId));
     }
     catch(e){console.log(e)}
 });
