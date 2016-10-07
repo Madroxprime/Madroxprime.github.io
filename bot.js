@@ -44,7 +44,7 @@ if(message.substring(0,1) != "!"){
             break;
         case "!make" :
             e.message.channel.sendMessage("We're not quite ready to make groups yet.");
-            break'               
+            break;               
             
      }
 }else {
