@@ -7,7 +7,7 @@ var dictionary = { gato : "cat", perro : "dog", zapato : "shoe"}
 var word;
 function getSpanish(){
 var spanishWords = Object.getOwnPropertyNames(dictionary).sort();
-word = spanishWords[Math.floor(math.random()*spanishWords.length)];
+word = spanishWords[Math.floor(Math.random()*spanishWords.length)];
 
 $("#Spanish").empty();
 $("#Spanish").append("<p>"+word+"</p>");
