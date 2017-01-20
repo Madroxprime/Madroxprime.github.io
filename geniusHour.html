@@ -3,7 +3,7 @@
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script>
 //Below is an example of an Object
-var dictionary = { gato : "cat", perro : "dog", zapato : "shoe"}
+var dictionary = { gato : "cat", perro : "dog", zapato : "shoe", escritorio : "desk", cuaderno : "notebook" }
 var word;
 function getSpanish(){
 var spanishWords = Object.getOwnPropertyNames(dictionary).sort();
@@ -14,6 +14,7 @@ $("#Spanish").append("<p>"+word+"</p>");
 }
 function checkAnswer(){
 var answer = $("#answer").val()
+$("#answer").val("");
 if(dictionary[word]==answer){
     $("#answer").val("");
     getSpanish();
