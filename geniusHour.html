@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+//Below is an example of an Object
+var dictionary = { gato : cat, perro : dog, zapato : shoe}
+var word;
+function getSpanish(){
+var spanishWords = Object.getOwnPropertyNames(dictionary).sort();
+word = spanishWords[Math.floor(math.random()*spanishWords.length)];
+
+$("#Spanish").empty();
+$("#Spanish").append("<p>"+word+"</p>");
+}
+function checkAnswer(){
+var answer = $("#answer").val()
+if(dictionary[word]==answer){
+    //Condition if right
+}
+else {
+    //Condition if wrong
+}
+}
+</script>
+
+</head>
+<body></center>
+<div id="Spanish">
+</div>
+<br>
+<input type="text" id="answer">
+<br>
+<button onClick="checkAnswer()"> CHECK ANSWER </button>
+</center>
+<script>
+$(document).ready(getSpanish);
+</script>
+
+</body>
+</html>
