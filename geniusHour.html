@@ -15,7 +15,8 @@ $("#Spanish").append("<p>"+word+"</p>");
 function checkAnswer(){
 var answer = $("#answer").val()
 if(dictionary[word]==answer){
-    //Condition if right
+    $("#answer").val("");
+    getSpanish();
 }
 else {
     //Condition if wrong
