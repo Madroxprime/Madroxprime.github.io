@@ -13,7 +13,7 @@ $("#Spanish").empty();
 $("#Spanish").append("<p>"+word+"</p>");
 }
 function checkAnswer(){
-var answer = $("#answer").val()
+var answer = $("#answer").val().toLowerCase();
 $("#answer").val("");
 if(dictionary[word]==answer){
     $("#answer").val("");
