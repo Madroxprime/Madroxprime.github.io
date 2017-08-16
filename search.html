@@ -1,12 +1,16 @@
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
 <script>
 function go(){
     window.location.href = "https://en.wiktionary.org/wiki/"+document.getElementById("query").value+"#Latin";
+    return false;
 }
 </script>
 <body>
+<form onsubmit="return go();" class="my-form">
 <input type="text" id="query"> 
-<button type="button" onclick = "go()"> SEARCH! </button>
+<input type="submit" value="SEARCH!">
+</form>
 </body>
 </html>
